@@ -86,7 +86,7 @@ temp_size = 50
 arduino = serial.Serial(port = 'COM11', baudrate = 115200, timeout = .1)
 sleep(2)
 value = write_read("-") # Starting communication with Arduino
-40ANN_hor = load_model('ANN_hor.h5') # ANN to calculate theta2, theta3, and theta4 for horizontol objects
+ANN_hor = load_model('ANN_hor.h5') # ANN to calculate theta2, theta3, and theta4 for horizontol objects
 ANN_ver = load_model('ANN_ver.h5') # ANN to calculate theta2, theta3, and theta4 for vertical objects
 cap_top = cv2.VideoCapture(0,cv2.CAP_DSHOW) # starting top camera
 cap_side = cv2.VideoCapture(1,cv2.CAP_DSHOW) # starting side camera
@@ -368,7 +368,7 @@ while(cap_top.isOpened() and not ids_list):
 
 
       #vertical object speed calculation
-      print(max_ids_side,"max_ids_side")    
+       
       if ver_detected == 1:
           ver_detected = 0 
           l_pik = cam_short_edge_p - start_y_side  #object length(pixel)
@@ -611,7 +611,7 @@ while(cap_top.isOpened() and not ids_list):
           if len(theta3_ver2_str) == 1:
               theta3_ver2_str = "00" + theta3_ver2_str
           elif len(theta3_ver2_str) == 2:
-              theta3_ver2_str = "0theta3_ver2_strac3a_top
+              theta3_ver2_str = "0" + theta3_ver2_str
           if len(theta4_ver2_str) == 1:
               theta4_ver2_str = "00" + theta4_ver2_str
           elif len(theta4_ver2_str) == 2:
@@ -782,7 +782,7 @@ while(cap_top.isOpened() and not ids_list):
           theta4_hor1_str = "0" + theta4_hor1_str
 
       end1 = time.time()
-      time_to_grasp - hor = ((1200 - cenx1) / speed_hor) - (end4 - start1) - (end - start) + (1 / (speed_hor / 100))
+      time_to_grasp = ((1200 - cenx1) / speed_hor) - (end1 - start1) - (end - start) + (1 / (speed_hor / 100))
       if time_to_grasp < 10:
           waitting = '0' + str(time_to_grasp * 1000)
       else:
